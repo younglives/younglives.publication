@@ -1,0 +1,15 @@
+setup.py
+younglives/__init__.py
+younglives.publication.egg-info/PKG-INFO
+younglives.publication.egg-info/SOURCES.txt
+younglives.publication.egg-info/dependency_links.txt
+younglives.publication.egg-info/entry_points.txt
+younglives.publication.egg-info/namespace_packages.txt
+younglives.publication.egg-info/not-zip-safe
+younglives.publication.egg-info/requires.txt
+younglives.publication.egg-info/top_level.txt
+younglives/publication/__init__.py
+younglives/publication/config.py
+younglives/publication/tests/__init__.py
+younglives/publication/tests/base.py
+younglives/publication/tests/testSetup.py

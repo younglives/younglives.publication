@@ -1,0 +1,4 @@
+<layers>
+    <layer name="younglives.publication"
+        interface="younglives.publication.browser.interfaces.IYounglivesPublication" />
+</layers>
