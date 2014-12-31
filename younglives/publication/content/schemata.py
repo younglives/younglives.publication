@@ -17,7 +17,7 @@ from Products.ATContentTypes.interfaces.topic import IATTopic
 from archetypes.referencebrowserwidget.widget import ReferenceBrowserWidget
 from Products.OrderableReferenceField import OrderableReferenceField, OrderableReferenceWidget
 
-from younglives.homepage import _
+from younglives.publication import _
 
 YLPublicationSchema = ATContentTypeSchema.copy() + Schema((
 
