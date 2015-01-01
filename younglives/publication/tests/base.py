@@ -6,6 +6,7 @@ from plone.testing import z2
 
 from younglives.publication.config import PROJECTNAME
 
+
 class TestCase(PloneSandboxLayer):
 
     defaultBases = (PLONE_FIXTURE,)
@@ -27,4 +28,5 @@ class TestCase(PloneSandboxLayer):
         z2.uninstallProduct(app, PROJECTNAME)
 
 FIXTURE = TestCase()
-INTEGRATION_TESTING = IntegrationTesting(bases=(FIXTURE,), name="fixture:Integration")
+INTEGRATION_TESTING = IntegrationTesting(
+    bases=(FIXTURE,), name="fixture:Integration")

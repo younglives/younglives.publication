@@ -4,8 +4,10 @@ from Products.CMFCore.utils import ContentInit
 from zope.i18nmessageid import MessageFactory
 _ = MessageFactory('younglives.publication')
 
-from content.publication import YLPublication
-from config import PROJECTNAME
+import content.publication.YLPublication  # noqa
+from younglives.publication.config import ADD_PERMISSIONS
+from younglives.publication.config import PROJECTNAME
+
 
 def initialize(context):
     """Initializer called when used as a Zope 2 product."""
@@ -15,8 +17,9 @@ def initialize(context):
         PROJECTNAME)
 
     for atype, constructor in zip(content_types, constructors):
-        ContentInit('%s: %s' % (PROJECTNAME, atype.portal_type),
-            content_types      = (atype,),
-            permission         = config.ADD_PERMISSIONS[atype.portal_type],
-            extra_constructors = (constructor,),
+        ContentInit(
+            '%s: %s' % (PROJECTNAME, atype.portal_type),
+            content_types=(atype,),
+            permission=ADD_PERMISSIONS[atype.portal_type],
+            extra_constructors=(constructor,),
             ).initialize(context)
