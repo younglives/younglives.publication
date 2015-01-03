@@ -4,7 +4,7 @@ from Products.CMFCore.utils import ContentInit
 from zope.i18nmessageid import MessageFactory
 _ = MessageFactory('younglives.publication')
 
-import content.publication.YLPublication  # noqa
+from younglives.publication.content.publication import YLPublication  # noqa
 from younglives.publication.config import ADD_PERMISSIONS
 from younglives.publication.config import PROJECTNAME
 
