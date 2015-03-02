@@ -1,4 +1,4 @@
 <layers>
     <layer name="younglives.publication"
-        interface="younglives.publication.browser.interfaces.IYounglivesPublication" />
+        interface="younglives.publication.browser.interfaces.IYLPublicationView" />
 </layers>

@@ -19,7 +19,7 @@ class TestInstallation(unittest.TestCase):
 
     def testBrowserLayerRegistered(self):
         layers = [o.__name__ for o in registered_layers()]
-        assert 'IYounglivesPublication' in layers
+        assert 'IYLPublicationView' in layers
 
     def testTypesInstalled(self):
         assert 'YLPublication' in self.portal.portal_types.objectIds()

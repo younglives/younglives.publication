@@ -1,0 +1,50 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="younglives.publication">
+
+<body>
+
+<metal:main fill-slot="main"
+                     tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+
+	<div tal:replace="structure provider:plone.abovecontenttitle" />
+	<div tal:replace="structure provider:plone.belowcontenttitle" />
+	<div tal:replace="structure provider:plone.abovecontentbody" />
+
+<!-- Title -->
+    <h2><span tal:replace="context/Title" /><tal:sub condition="context/getSubtitle">:
+        <span tal:replace="context/getSubtitle" /></tal:sub>
+    </h2>
+
+<!-- Files -->
+    <div tal:content="structure context/getCover_image" />
+	<ul class="publication-info">
+		<li>Date: <span tal:content="python:toLocalizedTime(context.getPublication_date() or context.Date())"/></li>
+		<li>Series: <span tal:content="context/getSeries"/></li>
+		<li>Author: <span tal:content="context/getAuthor"/></li>
+		<li tal:repeat="file view/files">
+		    <a href="#" class="" title=""
+               tal:attributes="href file/url;
+                               class file/css;
+	                           title file/title">Download the <span tal:replace="file/type" /></a>
+		    (<span class="filesize">
+                <span tal:replace="file/language" />,
+		        <span tal:replace="file/size" />,
+		        <span tal:replace="file/content_type" />
+		     </span>)
+		</li>
+	</ul>
+
+<!-- Text -->
+    <div tal:replace="structure context/getText">Text</div>
+
+    <div tal:replace="structure provider:plone.belowcontentbody" />
+
+</metal:main>
+
+</body>
+</html>

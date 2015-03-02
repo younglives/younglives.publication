@@ -1,7 +1,20 @@
 <configure 
     xmlns="http://namespaces.zope.org/zope"
-    xmlns:five="http://namespaces.zope.org/five"
-    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="younglives.publication">
+
+    <browser:page
+        for="younglives.publication.interfaces.IYLPublication"
+        name="publication_view"
+        class=".publication.PublicationView"
+        template="publication.pt"
+        permission="zope2.View"
+    />
+
+    <browser:resourceDirectory
+        name="younglives.publication.images"
+        directory="images"
+        layer=".interfaces.IYLPublicationView"
+    />
 
 </configure>
