@@ -12,11 +12,11 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
     />
 
-    <genericsetup:importStep
-        name="younglives_publication various"
-        title="Import various YoungLives publication settings"
+    <genericsetup:upgradeStep
+        title="Migrate Publications"
         description=""
-        handler="younglives.publication.setuphandlers.importVarious">
-    </genericsetup:importStep>
+        source="*"
+        handler="younglives.publication.setuphandlers.importVarious"
+        profile="younglives.publication:default" />
 
 </configure>
