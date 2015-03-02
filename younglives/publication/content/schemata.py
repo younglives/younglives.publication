@@ -86,6 +86,10 @@ YLPublicationSchema = ATFolderSchema.copy() + Schema((
         required=0,
         searchable=0,
         languageIndependent=1,
+        sizes={
+            'thumb': (80, 80),
+            'preview': (150, 150),
+        },
         widget=ImageWidget(
             label=_(u"ylpublication_cover_image_label",
                     default=u"Cover Image"),
