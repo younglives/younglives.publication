@@ -1,3 +1,4 @@
+from plone.app.folder.folder import ATFolderSchema
 from Products.Archetypes.atapi import AnnotationStorage
 from Products.Archetypes.atapi import CalendarWidget
 from Products.Archetypes.atapi import DateTimeField
@@ -9,12 +10,11 @@ from Products.Archetypes.atapi import StringField
 from Products.Archetypes.atapi import StringWidget
 from Products.Archetypes.atapi import TextField
 from Products.ATContentTypes.configuration import zconf
-from Products.ATContentTypes.content.schemata import ATContentTypeSchema
 from Products.ATContentTypes.content.schemata import finalizeATCTSchema
 
 from younglives.publication import _
 
-YLPublicationSchema = ATContentTypeSchema.copy() + Schema((
+YLPublicationSchema = ATFolderSchema.copy() + Schema((
 
     StringField(
         'subtitle',
@@ -74,6 +74,7 @@ YLPublicationSchema = ATContentTypeSchema.copy() + Schema((
         languageIndependent=1,
         storage=AnnotationStorage(),
         widget=CalendarWidget(
+            show_hm=False,
             label=_(u"ylpublication_publication_date_label",
                     default=u"Date"),
             description=_(u"ylpublication_publication_date_desc",
@@ -88,9 +89,9 @@ YLPublicationSchema = ATContentTypeSchema.copy() + Schema((
         storage=AnnotationStorage(),
         widget=ImageWidget(
             label=_(u"ylpublication_cover_image_label",
-                    default=u"Date"),
+                    default=u"Cover Image"),
             description=_(u"ylpublication_cover_image_desc",
-                          default=u"Publication date"),),
+                          default=u"Image size should be XXX"),),
         ),
 
 ))
