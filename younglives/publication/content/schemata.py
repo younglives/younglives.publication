@@ -1,6 +1,8 @@
 from Products.Archetypes.atapi import AnnotationStorage
 from Products.Archetypes.atapi import CalendarWidget
 from Products.Archetypes.atapi import DateTimeField
+from Products.Archetypes.atapi import ImageField
+from Products.Archetypes.atapi import ImageWidget
 from Products.Archetypes.atapi import RichWidget
 from Products.Archetypes.atapi import Schema
 from Products.Archetypes.atapi import StringField
@@ -72,9 +74,22 @@ YLPublicationSchema = ATContentTypeSchema.copy() + Schema((
         languageIndependent=1,
         storage=AnnotationStorage(),
         widget=CalendarWidget(
-            label=_(u"ylpublication_publication-date_label",
+            label=_(u"ylpublication_publication_date_label",
                     default=u"Date"),
-            description=_(u"ylpublication_publication-date_desc",
+            description=_(u"ylpublication_publication_date_desc",
+                          default=u"Publication date"),),
+        ),
+
+    ImageField(
+        'cover_image',
+        required=0,
+        searchable=0,
+        languageIndependent=1,
+        storage=AnnotationStorage(),
+        widget=ImageWidget(
+            label=_(u"ylpublication_cover_image_label",
+                    default=u"Date"),
+            description=_(u"ylpublication_cover_image_desc",
                           default=u"Publication date"),),
         ),
 
