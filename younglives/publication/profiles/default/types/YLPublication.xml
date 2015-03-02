@@ -5,24 +5,20 @@
  <property name="title" i18n:translate="">YLPublication</property>
  <property name="description"
      i18n:translate=""></property>
- <property name="icon_expr"></property>
+ <property name="icon_expr">string:$portal_url/++resource++younglives.publication.images/publication_icon.gif</property>
  <property name="content_meta_type">YLPublication</property>
  <property name="product">younglives.publication</property>
  <property name="factory">addYLPublication</property>
- <property name="immediate_view">folder_listing</property>
+ <property name="immediate_view">publication_view</property>
  <property name="global_allow">True</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
   <element value="File"/>
  </property>
  <property name="allow_discussion">False</property>
- <property name="default_view">folder_listing</property>
+ <property name="default_view">publication_view</property>
  <property name="view_methods">
-  <element value="folder_summary_view"/>
-  <element value="folder_full_view"/>
-  <element value="folder_tabular_view"/>
-  <element value="atct_album_view"/>
-  <element value="folder_listing"/>
+  <element value="publication_view"/>
  </property>
  <alias from="(Default)" to="(dynamic view)"/>
  <alias from="edit" to="atct_edit"/>
