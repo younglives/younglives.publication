@@ -1,3 +1,5 @@
+import re
+
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from plone.memoize import view
@@ -5,15 +7,26 @@ from zope.interface import implements
 
 from younglives.publication.browser.interfaces import IYLPublicationView
 
+MIME_TYPES = [
+    {'title': 'Word document',
+     'regex': ('.*officedocument.word',)},
+    {'title': 'Excel spreadsheet',
+     'regex': ('.*officedocument.spreadsheet',)},
+    {'title': 'PowerPoint presentation',
+     'regex': ('.*officedocument.presentation',)},
+    ]
+
+
 class PublicationView(BrowserView):
     implements(IYLPublicationView)
 
     @view.memoize
     def files(self):
         results = []
-        files = self.context.getFiles()
+        files = self.context.objectIds()
         ltool = getToolByName(self.context, 'portal_languages')
         for file in files:
+            file = self.context[file]
             lang = file.Language() or 'en'
             type_field = file.getField('documentType')
             type = type_field and type_field.get(file)
