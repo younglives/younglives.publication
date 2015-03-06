@@ -5,22 +5,18 @@
       lang="en"
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="younglives.publication">
-
 <body>
-
 <metal:main fill-slot="main"
-                     tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+    tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
 
 	<div tal:replace="structure provider:plone.abovecontenttitle" />
-	<div tal:replace="structure provider:plone.belowcontenttitle" />
-	<div tal:replace="structure provider:plone.abovecontentbody" />
 
-<!-- Title -->
     <h2><span tal:replace="context/Title" /><tal:sub condition="context/getSubtitle">:
         <span tal:replace="context/getSubtitle" /></tal:sub>
     </h2>
+	<div tal:replace="structure provider:plone.belowcontenttitle" />
+	<div tal:replace="structure provider:plone.abovecontentbody" />
 
-<!-- Files -->
     <div class="publication-info">
         <div class="cover-image" tal:content="structure python:context.getField('cover_image').tag(context, scale='preview')" />
         <ul>
@@ -28,8 +24,7 @@
             <li>Series: <span tal:content="context/getSeries"/></li>
             <li>Author: <span tal:content="context/getAuthor"/></li>
             <li tal:repeat="file view/files">
-                <a href="#" class="" title=""
-                   tal:attributes="href file/url;
+                <a tal:attributes="href file/url;
                                    class file/css;
                                    title file/title">Download the <span tal:replace="file/type" /></a>
                 (<span class="filesize">
@@ -41,12 +36,10 @@
         </ul>
     </div>
 
-<!-- Text -->
     <div tal:replace="structure context/getText">Text</div>
 
     <div tal:replace="structure provider:plone.belowcontentbody" />
 
 </metal:main>
-
 </body>
 </html>
