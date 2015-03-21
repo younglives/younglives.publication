@@ -2,10 +2,10 @@
 <object name="YLPublication"
    meta_type="Factory-based Type Information with dynamic views"
    i18n:domain="plone" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title" i18n:translate="">YLPublication</property>
+ <property name="title" i18n:translate="">Publication</property>
  <property name="description"
      i18n:translate=""></property>
- <property name="icon_expr">string:$portal_url/++resource++younglives.publication.images/publication_icon.gif</property>
+ <property name="icon_expr">string:$portal_url/++resource++younglives.publication.images/publication_icon.png</property>
  <property name="content_meta_type">YLPublication</property>
  <property name="product">younglives.publication</property>
  <property name="factory">addYLPublication</property>
