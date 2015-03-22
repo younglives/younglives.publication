@@ -31,6 +31,7 @@ class PublicationView(BrowserView):
             type_field = file.getField('documentType')
             type = type_field and type_field.get(file)
             results.append(dict(title=file.Title(),
+                                # XXX better way to get human readable sizes
                                 size='%s KB' % (file.get_size() / 1024),
                                 url=file.absolute_url(),
                                 css='',
@@ -41,6 +42,7 @@ class PublicationView(BrowserView):
         return results
 
     def _get_file_mimetype(self, file):
+        # XXX must be a better way to do this
         mimetype = self.context.lookupMime(file.getContentType())
         for MIME_TYPE in MIME_TYPES:
             regexs = MIME_TYPE['regex']
