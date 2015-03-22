@@ -17,4 +17,12 @@
         layer=".interfaces.IYLPublicationView"
     />
 
+    <browser:page
+        for="younglives.publication.interfaces.IYLPublication"
+        name="listing_snippet"
+        class=".publication.PublicationView"
+        template="listing_publication.pt"
+        permission="zope2.View"
+    />
+
 </configure>

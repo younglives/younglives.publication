@@ -1,0 +1,49 @@
+<tal:pub define="plone nocall:context/@@plone;
+                 files view/files;
+                 wtool context/@@plone_tools/workflow;
+                 normalizeString nocall: context/plone_utils/normalizeString;
+                 item_wf_state_class python:'state-' + normalizeString(wtool.getInfoFor(context, 'review_state'));">
+
+<div class="info">
+
+<!-- Title -->
+    <h4><a href="#" title=""
+           tal:attributes="href context/absolute_url;
+                           title context/Title;
+                           class item_wf_state_class"
+        ><span tal:replace="context/Title" />
+         <span condition="context/getSubtitle" tal:content="context/getSubtitle" /></a></h4>
+
+<!-- Info -->
+    <p class="pubdate"
+       tal:content="python:context.toLocalizedTime(context.getPublication_date() or context.Date())" />
+    <p class="pubinfo"
+       tal:define="parent_id context/aq_parent/getId">
+        <tal:details-journal condition="python:parent_id in ['journal-articles-1', 'articles']">
+            <span tal:replace="context/getAuthor" />,
+            <span tal:replace="context/getSeries" />
+        </tal:details-journal>
+        <tal:details-other condition="python:parent_id not in ['journal-articles-1', 'articles']">
+            <tal:condition condition="context/getSeries"><span tal:replace="context/getSeries" />,</tal:condition>
+            <span tal:replace="context/getAuthor" />
+        </tal:details-other>
+    </p>
+
+<!-- Description -->
+    <p tal:content="context/Description" />
+
+<!-- Files -->
+    <p class="download"
+       tal:repeat="file view/files">
+        <a href="#" class="" title=""
+        tal:attributes="href file/url;
+                        class file/css;
+                        title file/title">Download the <span tal:replace="file/type" /></a>
+        (<span class="filesize">
+             <span tal:replace="file/language" />,
+             <span tal:replace="file/size" />,
+             <span tal:replace="file/content_type" />
+        </span>)
+    </p>
+</div>
+</tal:pub>
