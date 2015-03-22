@@ -18,7 +18,9 @@
 	<div tal:replace="structure provider:plone.abovecontentbody" />
 
     <div class="publication-info">
-        <div class="cover-image" tal:content="structure python:context.getField('cover_image').tag(context, scale='preview')" />
+        <div class="cover-image"
+            tal:condition="context/getCover_image"
+            tal:content="structure python:context.getField('cover_image').tag(context, scale='preview')" />
         <ul>
             <li>Date: <span tal:content="python:toLocalizedTime(context.getPublication_date() or context.Date())"/></li>
             <li>Series: <span tal:content="context/getSeries"/></li>
