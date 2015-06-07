@@ -100,6 +100,7 @@ YLPublicationSchema = ATFolderSchema.copy() + Schema((
 ))
 
 
+YLPublicationSchema['title'].edit_accessor = 'editTitle'
 YLPublicationSchema["description"].widget.visible = {"edit": "invisible",
                                                 "view": "invisible"}
 finalizeATCTSchema(YLPublicationSchema, moveDiscussion=False)

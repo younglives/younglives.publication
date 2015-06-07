@@ -11,9 +11,7 @@
 
 	<div tal:replace="structure provider:plone.abovecontenttitle" />
 
-    <h2><span tal:replace="context/Title" /><tal:sub condition="context/getSubtitle">:
-        <span tal:replace="context/getSubtitle" /></tal:sub>
-    </h2>
+    <h2><span tal:replace="context/Title" /></h2>
 	<div tal:replace="structure provider:plone.belowcontenttitle" />
 	<div tal:replace="structure provider:plone.abovecontentbody" />
 

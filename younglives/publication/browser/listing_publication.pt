@@ -11,8 +11,7 @@
            tal:attributes="href context/absolute_url;
                            title context/Title;
                            class item_wf_state_class"
-        ><span tal:replace="context/Title" />
-         <span condition="context/getSubtitle" tal:content="context/getSubtitle" /></a></h4>
+        ><span tal:replace="context/Title" /></a></h4>
 
 <!-- Info -->
     <p class="pubdate"
