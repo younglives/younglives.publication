@@ -26,4 +26,8 @@ class YLPublication(ATFolder):
     def editTitle(self):
         return self.Schema()['title'].get(self)
 
+    def publication_date(self):
+        pub_date = self.getPublication_date()
+        return pub_date
+
 registerType(YLPublication, PROJECTNAME)
