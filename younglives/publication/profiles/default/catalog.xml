@@ -3,5 +3,5 @@
  <index name="publication_date" meta_type="DateIndex">
   <property name="index_naive_time_as_local">False</property>
  </index>
- <column value="publication_date/>
+ <column value="publication_date"/>
 </object>
