@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<portlets xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="younglives.publication">
+
+    <portlet addview="younglives.publication.Latest" title="New Publications"
+        description="A portlet which shows latest publications"
+        i18n:attributes="title title_latest_portlet;
+        description description_latest_portlet">
+        <for interface="plone.app.portlets.interfaces.IRightColumn" />
+    </portlet>
+
+</portlets>
