@@ -13,6 +13,9 @@ from zope.app.component.hooks import getSite
 from zope.lifecycleevent import modified
 from zope.publisher.interfaces import NotFound
 import zope.event
+from zope.interface import noLongerProvides
+
+from younglives.content.interfaces.content import IBannerAware
 
 referencedRelationship = 'isReferencing'
 
@@ -163,3 +166,18 @@ def importVarious(context):
                 pass
         transaction.commit()
     return failed_covers, broken_references
+
+
+def removeBannerAware(context):
+    """Remove banner aware from publications
+    """
+    # this won't work as publication inherits it from folder
+    portal = getSite()
+    catalog = getToolByName(portal, 'portal_catalog')
+    brains = catalog(
+        object_provides='younglives.content.interfaces.content.IBannerAware')
+    for brain in brains:
+        if brain.portal_type == 'YLPublication':
+            object = brain.getObject()
+            noLongerProvides(object, IBannerAware)
+    return 'Banner Aware removed from Publications'

@@ -19,4 +19,11 @@
         handler="younglives.publication.setuphandlers.importVarious"
         profile="younglives.publication:default" />
 
+    <genericsetup:upgradeStep
+        title="Remove banner aware from Publications"
+        description=""
+        source="*"
+        handler="younglives.publication.setuphandlers.removeBannerAware"
+        profile="younglives.publication:default" />
+
 </configure>
