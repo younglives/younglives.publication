@@ -4,6 +4,7 @@ before_install:
 install:
   - pip install zc.buildout
   - buildout init
+  - git clone git@github.com:younglives/buildout.younglives.git
   - bin/buildout -N -t 3 -c travis.cfg
 script: bin/test -s younglives.publication
 after_success:
