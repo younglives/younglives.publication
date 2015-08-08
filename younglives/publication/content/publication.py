@@ -1,5 +1,9 @@
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import registerType
+# need to import something from ATContentTypes
+# otherwise an import error for folder occurs for tests
+# http://stackoverflow.com/questions/21824850/test-module-import-failures-after-migrating-to-plone-app-testing-apparently-ci
+from Products.ATContentTypes.content.schemata import finalizeATCTSchema
 from plone.app.folder.folder import ATFolder
 from zope.interface import implements
 
