@@ -27,9 +27,9 @@
                 <a tal:attributes="href file/url;
                                    class file/css;
                                    title file/title">Download the <span tal:replace="file/type" /></a>
-                (<span class="filesize">&nbsp;<span tal:replace="file/language" />,
+                (<span class="filesize"><span tal:replace="file/language" />,
                     <span tal:replace="file/size" />,
-                    <span tal:replace="file/content_type" />&nbsp;</span>)
+                    <span tal:replace="file/content_type" /></span>)
             </li>
         </ul>
     </div>
